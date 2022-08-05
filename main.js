@@ -89,43 +89,47 @@ listaProductos.push({
     image: 'https://images.pexels.com/photos/11833898/pexels-photo-11833898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
-for(producto of listaProductos){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card')
-
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', producto.image);
-
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info')
-
-    /* ======================================= */
-
-    const productInfoDiv = document.createElement('div');
-
-    const productPrice = document.createElement('div');
-    productPrice.innerText= '$' + producto.price;
-
-    const productName = document.createElement('div');
-    productName.innerText= '$' + producto.name;
-
-    productInfoDiv.append(productPrice, productName);
-
-    /* ======================================= */
-    const productInfoFigure  = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
-
-    productInfoFigure.appendChild(productImgCart);
-
-    /* ======================================= */
-
-    productInfo.appendChild(productInfoDiv); 
-    productInfo.appendChild(productInfoFigure);
-
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
-
-    cardsContainer.appendChild(productCard)
-
+function renderProducts(arr){
+    for(producto of listaProductos){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card')
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', producto.image);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info')
+    
+        /* ======================================= */
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('div');
+        productPrice.innerText= '$' + producto.price;
+    
+        const productName = document.createElement('div');
+        productName.innerText= '$' + producto.name;
+    
+        productInfoDiv.append(productPrice, productName);
+    
+        /* ======================================= */
+        const productInfoFigure  = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        /* ======================================= */
+    
+        productInfo.appendChild(productInfoDiv); 
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard)
+    
+    }
 }
+
+renderProducts(listaProductos);
